@@ -199,9 +199,9 @@ const Github = () => {
       
       <div id="github-ss" ref={githubRef} className="relative top-[-10px] w-full h-full flex items-center justify-center bg-transparent">
         {!loading && (
-          <div
-            className="text-white z-10 w-full lg:w-[100%] max-w-6xl mx-auto flex items-start justify-start flex-col p-3 relative pt-[3.5rem] "
-          >
+                      <div
+              className="text-white z-10 w-full lg:w-[100%] max-w-[1200px] mx-auto flex items-start justify-start flex-col p-3 relative pt-[3.5rem] "
+            >
             <div className="flex items-center justify-center gap-4 sm:px-10 px-3  mb-2">
               <div className="">
                 <Image
@@ -217,62 +217,62 @@ const Github = () => {
                 {userStats.Repositories && "'s Github."}
               </h1>
             </div>
-            <div className="grid grid-cols-6 grid-rows-4 md:grid-cols-12 md:grid-rows-4 gap-2 w-full md:h-[600px] max-sm:min-h-[100vh]">
-              <Achievements
-                userStats={userStats}
-                classname="p-2 md:col-start-1 md:col-end-3 md:row-start-1 md:row-end-3 col-start-1 col-end-3 row-start-1 row-end-3 hidden md:flex"
-              />
-              <Languages
-                userStats={userStats}
-                classname="p-2 md:col-start-1 md:col-end-3 md:row-start-3 md:row-end-5 col-start-1 col-end-3 row-start-3 row-end-5 hidden md:flex"
-              />
-              <TimeAnalysis
-                userStats={userStats}
-                classname="p-2 md:col-start-3 md:col-end-5 md:row-start-1 md:row-end-3 col-start-3 col-end-5 row-start-1 row-end-3 hidden md:flex"
-              />
-              <Collaboration
-                userStats={userStats}
-                classname="p-2 md:col-start-3 md:col-end-5 md:row-start-3 md:row-end-5 col-start-3 col-end-5 row-start-3 row-end-5 hidden md:flex"
-              />
+            <div className="grid grid-cols-6 grid-rows-4 md:grid-cols-8 md:grid-rows-4 gap-3 w-full max-w-[1200px] mx-auto md:h-[600px] max-sm:min-h-[100vh]">
               <LongestStreak
                 streak={userStats["Longest Streak"] || 0}
                 start={userStats["Longest Streak Start"] || ""}
                 end={userStats["Longest Streak End"] || ""}
-                classname="p-2 md:col-start-5 md:col-end-7 md:row-start-1 md:row-end-3 col-start-3 col-end-5"
+                classname="p-3 md:col-start-1 md:col-end-3 md:row-start-1 md:row-end-3 col-start-1 col-end-3 row-start-1 row-end-3"
               />
               <CurrentStreak
                 streak={userStats["Current Streak"] || 0}
                 start={userStats["Current Streak Start"] || ""}
                 end={userStats["Current Streak End"] || ""}
-                classname="p-2 md:col-start-7 md:col-end-9 md:row-start-1 md:row-end-3 col-start-2 col-end-5"
-              />
-              <Followers
-                followers={userStats.Followers || 0}
-                classname="p-2 md:col-start-5 md:col-end-6 md:row-start-4 md:row-end-5 row-start-4 row-end-4 col-start-2 col-end-3"
+                classname="p-3 md:col-start-3 md:col-end-4 md:row-start-1 md:row-end-2 col-start-3 col-end-5 row-start-1 row-end-5"
               />
               <Repos
                 repos={userStats.Repositories || 0}
-                classname="p-2 md:col-start-6 md:col-end-10 md:row-start-1 md:row-end-2 col-start-4 col-end-5 row-start-3 row-end-5"
+                classname="p-3 md:col-start-4 md:col-end-5 md:row-start-1 md:row-end-2 col-start-1 col-end-3 row-start-3 row-end-4"
               />
               <Commit
                 commits={userStats["Total Contibutions"] || 0}
-                classname="p-2 md:col-start-9 md:col-end-11 md:row-start-1 md:row-end-5 col-start-1 col-end-4 row-start-3"
+                classname="p-3 md:col-start-5 md:col-end-7 md:row-start-1 md:row-end-3 col-start-3 col-end-5 row-start-3 row-end-5"
               />
               <PRs
                 pr={userStats["Pull Requests"] || 0}
-                classname="p-2 md:col-start-11 md:col-end-12 md:row-start-1 md:row-end-3 col-start-1 col-end-2 row-start-2"
-              />
-              <ContributedTo
-                contros={userStats["Contributed To"] || 0}
-                classname="p-2 md:col-start-11 md:col-end-12 md:row-start-3 md:row-end-5"
+                classname="p-3 md:col-start-7 md:col-end-8 md:row-start-1 md:row-end-2 col-start-1 col-end-2 row-start-1 row-end-2"
               />
               <Issues
                 issues={userStats.Issues || 0}
-                classname="p-2 md:col-start-6 md:col-end-7 md:row-start-2 md:row-end-4 col-start-1 row-start-4"
+                classname="p-3 md:col-start-8 md:col-end-8 md:row-start-1 md:row-end-2 col-start-2 col-end-3 row-start-1 row-end-2"
               />
               <Stars
                 stars={userStats["Star Earned"] || 0}
-                classname="p-2 md:col-start-7 md:col-end-9 md:row-start-3 md:row-end-5 col-start-1 col-end-3 row-start-1"
+                classname="p-3 md:col-start-3 md:col-end-4 md:row-start-2 md:row-end-3 col-start-1 col-end-3 row-start-4 row-end-5"
+              />
+              <ContributedTo
+                contros={userStats["Contributed To"] || 0}
+                classname="p-3 md:col-start-4 md:col-end-5 md:row-start-2 md:row-end-3 col-start-1 col-end-3 row-start-4 row-end-5"
+              />
+              <Followers
+                followers={userStats.Followers || 0}
+                classname="p-3 md:col-start-5 md:col-end-6 md:row-start-3 md:row-end-4 col-start-3 col-end-5 row-start-4 row-end-5"
+              />
+              <Achievements
+                userStats={userStats}
+                classname="p-3 md:col-start-2 md:col-end-4 md:row-start-3 md:row-end-4 col-start-1 col-end-5 row-start-1 row-end-3 hidden md:flex"
+              />
+              <Languages
+                userStats={userStats}
+                classname="p-3 md:col-start-6 md:col-end-8 md:row-start-2 md:row-end-4 col-start-1 col-end-3 row-start-3 row-end-4 hidden md:flex"
+              />
+              <TimeAnalysis
+                userStats={userStats}
+                classname="p-3 md:col-start-8 md:col-end-8 md:row-start-2 md:row-end-4 col-start-3 col-end-5 row-start-1 row-end-2 hidden md:flex"
+              />
+              <Collaboration
+                userStats={userStats}
+                classname="p-3 md:col-start-6 md:col-end-8 md:row-start-4 md:row-end-5 col-start-1 col-end-3 row-start-2 row-end-3 hidden md:flex"
               />
             </div>
             <div className="max-sm:px-5 mt-2 w-full max-w-2xl flex  mx-auto">
