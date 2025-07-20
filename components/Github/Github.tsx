@@ -10,6 +10,10 @@ import Commit from "./Github Components/Commits";
 import PRs from "./Github Components/PRs";
 import Issues from "./Github Components/Issues";
 import ContributedTo from "./Github Components/ContributedTo";
+import Achievements from "./Github Components/Achievements";
+import Languages from "./Github Components/Languages";
+import TimeAnalysis from "./Github Components/TimeAnalysis";
+import Collaboration from "./Github Components/Collaboration";
 import ShareButtons from "../ui/share-buttons";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
@@ -40,6 +44,7 @@ const Github = () => {
   const username = useRecoilValue(usernameState);
   const [background, setBackground] = useRecoilState(backgroundState);
   const [selectedImage, setSelectedImage] = useState<string>("/assets/black.png");
+
 
   const githubRef = useRef<HTMLDivElement | null>(null);
 
@@ -212,46 +217,62 @@ const Github = () => {
                 {userStats.Repositories && "'s Github."}
               </h1>
             </div>
-            <div className="grid grid-cols-4 grid-rows-4 md:grid-cols-8 md:grid-rows-4 gap-2 w-full md:h-[600px] max-sm:min-h-[100vh]">
+            <div className="grid grid-cols-6 grid-rows-4 md:grid-cols-12 md:grid-rows-4 gap-2 w-full md:h-[600px] max-sm:min-h-[100vh]">
+              <Achievements
+                userStats={userStats}
+                classname="p-2 md:col-start-1 md:col-end-3 md:row-start-1 md:row-end-3 col-start-1 col-end-3 row-start-1 row-end-3 hidden md:flex"
+              />
+              <Languages
+                userStats={userStats}
+                classname="p-2 md:col-start-1 md:col-end-3 md:row-start-3 md:row-end-5 col-start-1 col-end-3 row-start-3 row-end-5 hidden md:flex"
+              />
+              <TimeAnalysis
+                userStats={userStats}
+                classname="p-2 md:col-start-3 md:col-end-5 md:row-start-1 md:row-end-3 col-start-3 col-end-5 row-start-1 row-end-3 hidden md:flex"
+              />
+              <Collaboration
+                userStats={userStats}
+                classname="p-2 md:col-start-3 md:col-end-5 md:row-start-3 md:row-end-5 col-start-3 col-end-5 row-start-3 row-end-5 hidden md:flex"
+              />
               <LongestStreak
                 streak={userStats["Longest Streak"] || 0}
                 start={userStats["Longest Streak Start"] || ""}
                 end={userStats["Longest Streak End"] || ""}
-                classname="p-2 md:col-start-1 md:col-end-3 md:row-start-1 md:row-end-3 col-start-3 col-end-5 "
+                classname="p-2 md:col-start-5 md:col-end-7 md:row-start-1 md:row-end-3 col-start-3 col-end-5"
               />
               <CurrentStreak
                 streak={userStats["Current Streak"] || 0}
                 start={userStats["Current Streak Start"] || ""}
                 end={userStats["Current Streak End"] || ""}
-                classname="p-2 md:col-start-3 md:col-end-5 md:row-start-1 md:row-end-4 col-start-2 col-end-5"
+                classname="p-2 md:col-start-7 md:col-end-9 md:row-start-1 md:row-end-3 col-start-2 col-end-5"
               />
               <Followers
                 followers={userStats.Followers || 0}
-                classname="p-2 md:col-start-7 md:col-end-9 md:row-start-4 md:row-end-5 row-start-4 row-end-4 col-start-2 col-end-3"
+                classname="p-2 md:col-start-5 md:col-end-6 md:row-start-4 md:row-end-5 row-start-4 row-end-4 col-start-2 col-end-3"
               />
               <Repos
                 repos={userStats.Repositories || 0}
-                classname="p-2 md:col-start-5 md:col-end-9 md:row-start-1 md:row-end-2 col-start-4 col-end-5 row-start-3 row-end-5"
+                classname="p-2 md:col-start-6 md:col-end-10 md:row-start-1 md:row-end-2 col-start-4 col-end-5 row-start-3 row-end-5"
               />
               <Commit
                 commits={userStats["Total Contibutions"] || 0}
-                classname="p-2 md:col-start-5 md:col-end-7 md:row-start-2 md:row-end-5 col-start-1 col-end-4 row-start-3"
+                classname="p-2 md:col-start-9 md:col-end-11 md:row-start-1 md:row-end-5 col-start-1 col-end-4 row-start-3"
               />
               <PRs
                 pr={userStats["Pull Requests"] || 0}
-                classname="p-2 md:col-start-7 md:col-end-8 md:row-start-2 md:row-end-4 col-start-1 col-end-2 row-start-2"
+                classname="p-2 md:col-start-11 md:col-end-12 md:row-start-1 md:row-end-3 col-start-1 col-end-2 row-start-2"
               />
               <ContributedTo
                 contros={userStats["Contributed To"] || 0}
-                classname="p-2 md:col-start-3 md:col-end-5 md:row-start-4 md:row-end-5"
+                classname="p-2 md:col-start-11 md:col-end-12 md:row-start-3 md:row-end-5"
               />
               <Issues
                 issues={userStats.Issues || 0}
-                classname="p-2 md:col-start-8 md:col-end-9 md:row-start-2 md:row-end-4 col-start-1 row-start-4"
+                classname="p-2 md:col-start-6 md:col-end-7 md:row-start-2 md:row-end-4 col-start-1 row-start-4"
               />
               <Stars
                 stars={userStats["Star Earned"] || 0}
-                classname="p-2 md:col-start-1 md:col-end-3 md:row-start-3 md:row-end-5 col-start-1 col-end-3 row-start-1"
+                classname="p-2 md:col-start-7 md:col-end-9 md:row-start-3 md:row-end-5 col-start-1 col-end-3 row-start-1"
               />
             </div>
             <div className="max-sm:px-5 mt-2 w-full max-w-2xl flex  mx-auto">
