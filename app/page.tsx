@@ -5,15 +5,67 @@ import GithubInput from "@/components/Input/GithubInput";
 import { GithubIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRecoilValue } from "recoil";
-import { userStatsState } from "@/Recoil/State/atom";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { userStatsState, usernameState, loadingState, graphState } from "@/Recoil/State/atom";
+import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import fetchUser from "@/actions/fetchUser";
+import fetchGraph from "@/actions/fetchGraph";
+import { toast } from "@/hooks/use-toast";
+import ErrorBoundary from "@/components/ui/error-boundary";
 
 export default function Home() {
   const userStats = useRecoilValue(userStatsState);
+  const setUsername = useSetRecoilState(usernameState);
+  const setLoading = useSetRecoilState(loadingState);
+  const setUserStats = useSetRecoilState(userStatsState);
+  const setGraphState = useSetRecoilState(graphState);
   const hasUserData = userStats && Object.keys(userStats).length > 0;
+  const searchParams = useSearchParams();
+
+  // Handle URL-based sharing
+  useEffect(() => {
+    const usernameFromUrl = searchParams.get('user');
+    if (usernameFromUrl && !hasUserData) {
+      loadUserData(usernameFromUrl);
+    }
+  }, [searchParams, hasUserData]);
+
+  const loadUserData = async (username: string) => {
+    try {
+      setLoading(true);
+      toast({ title: "Loading from URL...", generating: true });
+      setUsername(username);
+      
+      const { userStats } = await fetchUser(username);
+      const graph = await fetchGraph(username);
+      
+      setUserStats(userStats);
+      setGraphState(graph);
+      
+      if (graph.graph === "No contributions this year") {
+        toast({
+          title: "No contributions found",
+          description: "This user has no contributions this year",
+        });
+      } else {
+        toast({ title: "GitWrapped loaded from URL" });
+      }
+    } catch (error) {
+      console.error('Error loading from URL:', error);
+      toast({
+        title: "Error loading user",
+        description: "Failed to load user data from URL",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <div className="w-full min-h-screen mx-auto p-5 max-sm:p-0 flex flex-col items-center justify-center overflow-hidden relative">
+    <ErrorBoundary>
+      <div className="w-full min-h-screen mx-auto p-5 max-sm:p-0 flex flex-col items-center justify-center overflow-hidden relative">
         <Link
           href={`https://github.com/jonathanrao99`}
           className="cursor-pointer flex items-center justify-start gap-2 z-10 w-full font-modernmono text-zinc-600 hover:text-white/60 px-5 max-sm:py-3"
@@ -26,7 +78,7 @@ export default function Home() {
       {!hasUserData && (
         <>
           <Image
-            src={`/assets/grad1.svg`}
+            src={`/assets/grad1.jpg`}
             alt=""
             width={500}
             height={500}
@@ -58,6 +110,7 @@ export default function Home() {
       
       {/* Github component - rendered conditionally */}
       {hasUserData && <Github />}
-    </div>
+      </div>
+    </ErrorBoundary>
   );
 }

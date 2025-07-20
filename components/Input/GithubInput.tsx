@@ -22,9 +22,11 @@ import {
   usernameState,
   userStatsState,
 } from "@/Recoil/State/atom";
+import { useRouter } from "next/navigation";
 import fetchUser from "@/actions/fetchUser";
 import fetchGraph from "@/actions/fetchGraph";
 import { toast } from "@/hooks/use-toast";
+import { GitWrappedError } from "@/utils/errorHandler";
 
 const githubInputSchema = z.object({
   username: z.string().min(2).max(50),
@@ -32,9 +34,10 @@ const githubInputSchema = z.object({
 
 const GithubInput = () => {
   const setUsername = useSetRecoilState(usernameState);
-  const  setLoading = useSetRecoilState(loadingState);
+  const setLoading = useSetRecoilState(loadingState);
   const setUserStats = useSetRecoilState(userStatsState);
   const setGraphState = useSetRecoilState(graphState);
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof githubInputSchema>>({
     resolver: zodResolver(githubInputSchema),
@@ -48,6 +51,9 @@ const GithubInput = () => {
       setLoading(true);
       toast({ title: "Generating", generating: true });    
       setUsername(values.username);
+      
+      // Update URL for sharing
+      router.push(`/?user=${encodeURIComponent(values.username)}`);
       
       const { userStats } = await fetchUser(values.username);
       const graph = await fetchGraph(values.username);
@@ -66,22 +72,18 @@ const GithubInput = () => {
     } catch (error) {
       console.error('Error in form submission:', error);
       
+      let errorTitle = "Error";
       let errorMessage = "An error occurred while fetching data";
       
-      if (error instanceof Error) {
-        if (error.message.includes('GitHub token not found')) {
-          errorMessage = "GitHub API token not configured. Please set up authentication.";
-        } else if (error.message.includes('not found')) {
-          errorMessage = "User not found. Please check the username.";
-        } else if (error.message.includes('401')) {
-          errorMessage = "Authentication failed. Please check your GitHub token.";
-        } else {
-          errorMessage = error.message;
-        }
+      if (error instanceof GitWrappedError) {
+        errorTitle = error.message;
+        errorMessage = error.message;
+      } else if (error instanceof Error) {
+        errorMessage = error.message;
       }
       
       toast({
-        title: "Error",
+        title: errorTitle,
         description: errorMessage,
         variant: "destructive",
       });

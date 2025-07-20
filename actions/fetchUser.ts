@@ -7,6 +7,7 @@ import {
   calculateTotalContributions,
   formatDate,
 } from "@/utils/calc";
+import { handleGitHubError, GitWrappedError } from "@/utils/errorHandler";
 
 const userStatsQuery = `
   followers {
@@ -134,7 +135,8 @@ const fetchUser = async (
     };
   } catch (error) {
     console.error('Error fetching user data:', error);
-    throw error;
+    const appError = handleGitHubError(error);
+    throw new GitWrappedError(appError);
   }
 };
 

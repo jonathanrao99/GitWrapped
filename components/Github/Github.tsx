@@ -10,6 +10,7 @@ import Commit from "./Github Components/Commits";
 import PRs from "./Github Components/PRs";
 import Issues from "./Github Components/Issues";
 import ContributedTo from "./Github Components/ContributedTo";
+import ShareButtons from "../ui/share-buttons";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
   backgroundState,
@@ -116,7 +117,12 @@ const Github = () => {
       </div>
       
       {!loading && (
-        <div className="absolute top-8 px-10 z-30 right-0 max-sm:right-[4.2rem] max-sm:top-2">
+        <div className="absolute top-8 px-10 z-30 right-0 max-sm:right-[4.2rem] max-sm:top-2 flex gap-4">
+          <ShareButtons 
+            username={username} 
+            userStats={userStats} 
+            className="max-sm:hidden"
+          />
           <Select
             onValueChange={(value) => {
               const imageMap: Record<string, string> = {
@@ -266,17 +272,26 @@ const Github = () => {
           </div>
         )}
         </div>
-      {!loading && (
-        <Button
-          onClick={handleDownloadImage}
-          className="border-zinc-200/20 bg-zinc-800/20 rounded-full py-6 absolute bottom-4 right-1 group z-20 max-sm:top-2 max-sm:right-3"
-        >
-          <ArrowDown size={18} />
-          <p className="font-modernreg text-zinc-400 max-xl:border border-zinc-200/20 max-xl:bg-primary/90 max-xl:p-1 max-xl:text-white/90 px-2 max-xl:px-3 max-xl:rounded-lg bottom-10 right-1 max-xl:absolute lg:flex max-lg:translate-y-2 max-xl:opacity-0 max-xl:group-hover:opacity-100 max-xl:group-hover:translate-y-0 duration-150 lg:group-hover:text-white/80">
-            Download Bento
-          </p>
-        </Button>
-      )}
+              {!loading && (
+          <>
+            <Button
+              onClick={handleDownloadImage}
+              className="border-zinc-200/20 bg-zinc-800/20 rounded-full py-6 absolute bottom-4 right-1 group z-20 max-sm:top-2 max-sm:right-3"
+            >
+              <ArrowDown size={18} />
+              <p className="font-modernreg text-zinc-400 max-xl:border border-zinc-200/20 max-xl:bg-primary/90 max-xl:p-1 max-xl:text-white/90 px-2 max-xl:px-3 max-xl:rounded-lg bottom-10 right-1 max-xl:absolute lg:flex max-lg:translate-y-2 max-xl:opacity-0 max-xl:group-hover:opacity-100 max-xl:group-hover:translate-y-0 duration-150 lg:group-hover:text-white/80">
+                Download Bento
+              </p>
+            </Button>
+            <div className="absolute bottom-4 left-1 z-20 max-sm:top-2 max-sm:left-3 md:hidden">
+              <ShareButtons 
+                username={username} 
+                userStats={userStats} 
+                className="flex-col gap-1"
+              />
+            </div>
+          </>
+        )}
     </div>
   );
 };
