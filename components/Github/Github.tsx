@@ -216,58 +216,58 @@ const Github = () => {
                 {userStats.Repositories && "'s Github."}
               </h1>
             </div>
-            <div className="grid grid-cols-6 grid-rows-6 gap-2 w-full max-w-[1500px] mx-auto md:grid-cols-10 md:grid-rows-4 md:gap-3 md:h-[600px] max-sm:min-h-[100vh]">
+            <div className="grid grid-cols-4 grid-rows-8 gap-1.5 w-full max-w-[1500px] mx-auto sm:grid-cols-6 sm:grid-rows-6 sm:gap-2 md:grid-cols-8 md:grid-rows-5 md:gap-2.5 lg:grid-cols-10 lg:grid-rows-4 lg:gap-3 lg:h-[600px] max-sm:min-h-[100vh]">
               <LongestStreak
                 streak={userStats["Longest Streak"] || 0}
                 start={userStats["Longest Streak Start"] || ""}
                 end={userStats["Longest Streak End"] || ""}
-                classname="p-2 md:p-3 col-start-1 col-span-3 row-start-1 row-span-2 md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-3 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 col-start-1 col-span-2 row-start-1 row-span-3 sm:col-start-1 sm:col-span-3 sm:row-start-1 sm:row-span-2 md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-3 lg:col-start-1 lg:col-span-2 lg:row-start-1 lg:row-span-3 overflow-hidden min-w-0 min-h-0"
               />
               <CurrentStreak
                 streak={userStats["Current Streak"] || 0}
                 start={userStats["Current Streak Start"] || ""}
                 end={userStats["Current Streak End"] || ""}
-                classname="p-2 md:p-3 col-start-4 col-span-3 row-start-1 row-span-2 md:col-start-3 md:col-span-2 md:row-start-1 md:row-span-2 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 col-start-3 col-span-2 row-start-1 row-span-3 sm:col-start-4 sm:col-span-3 sm:row-start-1 sm:row-span-2 md:col-start-3 md:col-span-2 md:row-start-1 md:row-span-2 lg:col-start-3 lg:col-span-2 lg:row-start-1 lg:row-span-2 overflow-hidden min-w-0 min-h-0"
               />
               <Followers
                 followers={userStats.Followers || 0}
-                classname="p-2 md:p-3 col-start-1 col-span-2 row-start-3 row-span-1 md:col-start-5 md:col-span-2 md:row-start-1 md:row-span-1 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 col-start-1 col-span-1 row-start-4 row-span-2 sm:col-start-1 sm:col-span-2 sm:row-start-3 sm:row-span-1 md:col-start-5 md:col-span-2 md:row-start-1 md:row-span-1 lg:col-start-5 lg:col-span-2 lg:row-start-1 lg:row-span-1 overflow-hidden min-w-0 min-h-0"
               />
               <Repos
                 repos={userStats.Repositories || 0}
-                classname="p-2 md:p-3 col-start-3 col-span-2 row-start-3 row-span-1 md:col-start-7 md:col-span-4 md:row-start-4 md:row-span-1 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 col-start-2 col-span-1 row-start-4 row-span-2 sm:col-start-3 sm:col-span-2 sm:row-start-3 sm:row-span-1 md:col-start-7 md:col-span-2 md:row-start-4 md:row-span-1 lg:col-start-7 lg:col-span-4 lg:row-start-4 lg:row-span-1 overflow-hidden min-w-0 min-h-0"
               />
               <Commit
                 commits={userStats["Total Contibutions"] || 0}
-                classname="p-2 md:p-3 col-start-5 col-span-2 row-start-3 row-span-1 md:col-start-5 md:col-span-2 md:row-start-2 md:row-span-2 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 col-start-3 col-span-1 row-start-4 row-span-2 sm:col-start-5 sm:col-span-2 sm:row-start-3 sm:row-span-1 md:col-start-5 md:col-span-2 md:row-start-2 md:row-span-2 lg:col-start-5 lg:col-span-2 lg:row-start-2 lg:row-span-2 overflow-hidden min-w-0 min-h-0"
               />
               <PRs
                 pr={userStats["Pull Requests"] || 0}
-                classname="p-2 md:p-3 col-start-1 col-span-2 row-start-4 row-span-1 md:col-start-7 md:col-span-1 md:row-start-1 md:row-span-3 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 col-start-4 col-span-1 row-start-4 row-span-2 sm:col-start-1 sm:col-span-2 sm:row-start-4 sm:row-span-1 md:col-start-7 md:col-span-1 md:row-start-1 md:row-span-3 lg:col-start-7 lg:col-span-1 lg:row-start-1 lg:row-span-3 overflow-hidden min-w-0 min-h-0"
               />
               <Issues
                 issues={userStats.Issues || 0}
-                classname="p-2 md:p-3 col-start-3 col-span-2 row-start-4 row-span-1 md:col-start-8 md:col-span-1 md:row-start-1 md:row-span-2 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 col-start-1 col-span-1 row-start-6 row-span-2 sm:col-start-3 sm:col-span-2 sm:row-start-4 sm:row-span-1 md:col-start-8 md:col-span-1 md:row-start-1 md:row-span-2 lg:col-start-8 lg:col-span-1 lg:row-start-1 lg:row-span-2 overflow-hidden min-w-0 min-h-0"
               />
               <Stars
                 stars={userStats["Star Earned"] || 0}
-                classname="p-2 md:p-3 col-start-5 col-span-2 row-start-4 row-span-1 md:col-start-1 md:col-span-2 md:row-start-4 md:row-span-1 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 col-start-2 col-span-1 row-start-6 row-span-2 sm:col-start-5 sm:col-span-2 sm:row-start-4 sm:row-span-1 md:col-start-1 md:col-span-2 md:row-start-4 md:row-span-1 lg:col-start-1 lg:col-span-2 lg:row-start-4 lg:row-span-1 overflow-hidden min-w-0 min-h-0"
               />
               <ContributedTo
                 contros={userStats["Contributed To"] || 0}
-                classname="p-2 md:p-3 col-start-1 col-span-2 row-start-5 row-span-1 md:col-start-5 md:col-span-2 md:row-start-4 md:row-span-1 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 col-start-3 col-span-1 row-start-6 row-span-2 sm:col-start-1 sm:col-span-2 sm:row-start-5 sm:row-span-1 md:col-start-5 md:col-span-2 md:row-start-4 md:row-span-1 lg:col-start-5 lg:col-span-2 lg:row-start-4 lg:row-span-1 overflow-hidden min-w-0 min-h-0"
               />
               <Achievements
                 userStats={userStats}
-                classname="p-2 md:p-3 col-start-3 col-span-2 row-start-5 row-span-1 md:col-start-8 md:col-span-3 md:row-start-3 md:row-span-1 hidden md:block overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 col-start-4 col-span-1 row-start-6 row-span-2 sm:col-start-3 sm:col-span-2 sm:row-start-5 sm:row-span-1 md:col-start-8 md:col-span-3 md:row-start-3 md:row-span-1 lg:col-start-8 lg:col-span-3 lg:row-start-3 lg:row-span-1 hidden sm:block overflow-hidden min-w-0 min-h-0"
               />
               <Languages
                 userStats={userStats}
-                classname="p-2 md:p-3 col-start-5 col-span-2 row-start-5 row-span-1 md:col-start-3 md:col-span-2 md:row-start-3 md:row-span-2 hidden md:block overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 col-start-1 col-span-2 row-start-8 row-span-1 sm:col-start-5 sm:col-span-2 sm:row-start-5 sm:row-span-1 md:col-start-3 md:col-span-2 md:row-start-3 md:row-span-2 lg:col-start-3 lg:col-span-2 lg:row-start-3 lg:row-span-2 overflow-hidden min-w-0 min-h-0"
               />
               <TimeAnalysis
                 userStats={userStats}
-                classname="p-2 md:p-3 col-start-1 col-span-3 row-start-6 row-span-1 md:col-start-9 md:col-span-2 md:row-start-1 md:row-span-2 hidden md:block overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 col-start-3 col-span-2 row-start-8 row-span-1 sm:col-start-1 sm:col-span-3 sm:row-start-6 sm:row-span-1 md:col-start-9 md:col-span-2 md:row-start-1 md:row-span-2 lg:col-start-9 lg:col-span-2 lg:row-start-1 lg:row-span-2 overflow-hidden min-w-0 min-h-0"
               />
             </div>
             <div className="px-3 sm:px-5 mt-2 w-full max-w-2xl flex mx-auto">
