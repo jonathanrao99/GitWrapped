@@ -1,22 +1,22 @@
-# 🎉 GitWrapped - Your GitHub Year in Review
+# 🎉 GitWrapped 2.0 - Your GitHub Year in Review
 
 <div align="center">
 
-![GitWrapped Banner](https://img.shields.io/badge/GitWrapped-Your%20GitHub%20Year%20in%20Review-blue?style=for-the-badge&logo=github)
+![GitWrapped 2.0](https://img.shields.io/badge/GitWrapped-2.0-blue?style=for-the-badge&logo=github)
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3-38B2AC?style=for-the-badge&logo=tailwind-css)
 
 *A beautiful, modern dashboard showcasing your GitHub activity and achievements in a stunning bento grid layout.*
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Project-green?style=for-the-badge&logo=vercel)](https://gitwrapped-psi.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Project-green?style=for-the-badge&logo=vercel)](https://git-wrapped-tau.vercel.app)
 [![Original Repo](https://img.shields.io/badge/Original%20Repo-zzzzshawn%2Fgitwrapped-blue?style=for-the-badge&logo=github)](https://github.com/zzzzshawn/gitwrapped)
 
 </div>
 
 ---
 
-## ✨ Features
+## ✨ What's New in 2.0
 
 ### 🎯 **Enhanced Bento Grid Layout**
 - **40-cell responsive grid** (10×4) optimized for 1500px width
@@ -46,16 +46,9 @@
 - **Background image selection** with live preview
 - **Download functionality** for sharing your stats
 
-### 🔧 **Technical Improvements**
-- **Fixed grid layout** with proper col-span/row-span
-- **Optimized component sizing** for better visual balance
-- **Removed overlapping elements** for clean design
-- **Enhanced responsive behavior** across devices
-- **Improved accessibility** and user experience
-
 ---
 
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
 - Node.js 18+ 
@@ -65,8 +58,8 @@
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/gitwrapped.git
-cd gitwrapped
+git clone https://github.com/jonathanrao99/GitWrapped.git
+cd GitWrapped
 ```
 
 2. **Install dependencies**
@@ -112,10 +105,10 @@ Navigate to [http://localhost:3000](http://localhost:3000) to see the applicatio
 <div align="center">
 
 ### Desktop View
-![Desktop Layout](https://via.placeholder.com/800x400/1f2937/ffffff?text=Desktop+GitWrapped+Layout)
+![Desktop Layout](https://via.placeholder.com/800x400/1f2937/ffffff?text=Desktop+GitWrapped+2.0+Layout)
 
 ### Mobile View  
-![Mobile Layout](https://via.placeholder.com/400x600/1f2937/ffffff?text=Mobile+GitWrapped+Layout)
+![Mobile Layout](https://via.placeholder.com/400x600/1f2937/ffffff?text=Mobile+GitWrapped+2.0+Layout)
 
 </div>
 
@@ -190,14 +183,14 @@ This project is based on the excellent work by **[zzzzshawn](https://github.com/
 ### 🌟 Star the Repository
 If you find this project helpful, please give it a ⭐ on GitHub!
 
-[![GitHub stars](https://img.shields.io/github/stars/zzzzshawn/gitwrapped?style=social)](https://github.com/zzzzshawn/gitwrapped)
+[![GitHub stars](https://img.shields.io/github/stars/jonathanrao99/GitWrapped?style=social)](https://github.com/jonathanrao99/GitWrapped)
 
 ### 📞 Connect
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/zzzzshawn)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/zzzzshawn)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jonathanrao99)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jonathanrao99)
 
 ---
 
-**Made with ❤️ by the GitWrapped community**
+**Made with ❤️ by SOL-III Community**
 
 </div>
