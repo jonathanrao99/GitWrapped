@@ -42,7 +42,7 @@ const Github = () => {
   const loading = useRecoilValue(loadingState);
   const username = useRecoilValue(usernameState);
   const [background, setBackground] = useRecoilState(backgroundState);
-  const [selectedImage, setSelectedImage] = useState<string>("/assets/black.png");
+  const [selectedImage, setSelectedImage] = useState<string>("/assets/grad1.jpg");
 
 
   const githubRef = useRef<HTMLDivElement | null>(null);
@@ -101,10 +101,10 @@ const Github = () => {
       "assets/frame2.png": "/assets/frame2.png",
       "assets/bg3.png": "/assets/bg3.png", 
       "assets/bg4.png": "/assets/bg4.png",
-      "assets/black.png": "/assets/black.png",
+      "assets/grad1.jpg": "/assets/grad1.jpg",
     };
     
-    return backgroundMap[background] || "/assets/black.png";
+    return backgroundMap[background] || "/assets/grad1.jpg";
   };
 
   return (
@@ -133,7 +133,7 @@ const Github = () => {
                 apple: "assets/frame2.png",
                 banana: "assets/bg3.png",
                 blueberry: "assets/bg4.png",
-                grapes: "assets/black.png",
+                grapes: "assets/grad1.jpg",
               };
               const selectedBackground = imageMap[value];
               setSelectedImage(`/${selectedBackground}`);
@@ -183,7 +183,7 @@ const Github = () => {
                 <SelectItem value="grapes">
                   {" "}
                   <Image
-                    src={`/assets/black.png`}
+                    src={`/assets/grad1.jpg`}
                     alt=""
                     width={100}
                     height={100}

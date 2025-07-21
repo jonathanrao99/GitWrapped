@@ -1,5 +1,5 @@
 import React from "react";
-import { Trophy } from "lucide-react";
+import { Medal } from "lucide-react";
 import { calculateAchievements, getAchievementRarityColor, getAchievementRarityBg } from "@/utils/achievements";
 import { UserStats } from "@/types";
 import Image from "next/image";
@@ -20,7 +20,7 @@ const Achievements = ({
   return (
     <div className={`${classname} flex items-center justify-center flex-col gap-3 relative rounded-3xl overflow-hidden bg-black/90 z-[90] group cursor-pointer`}>
       <Image
-        src={`/assets/grad2.svg`}
+        src={`/assets/1.webp`}
         alt=""
         width={500}
         height={500}
@@ -28,7 +28,7 @@ const Achievements = ({
         className="size-full object-cover absolute inset-0 -z-10 rounded-2xl opacity-80 group-hover:opacity-100"
       />
       <div className="absolute top-5 left-5">
-        <Trophy className="size-10" />
+        <Medal className="size-10" />
         <p className="font-modernbold text-xl pt-1">Achievements</p>
       </div>
       

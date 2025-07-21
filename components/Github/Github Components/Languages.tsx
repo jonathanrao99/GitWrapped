@@ -34,7 +34,7 @@ const Languages = ({
   return (
     <div className={`${classname} flex items-center justify-center flex-col gap-3 relative rounded-3xl overflow-hidden bg-black/90 z-[90] group cursor-pointer`}>
       <Image
-        src={`/assets/grad4.svg`}
+        src={`/assets/2.webp`}
         alt=""
         width={500}
         height={500}
