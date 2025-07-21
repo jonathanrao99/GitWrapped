@@ -93,28 +93,31 @@ const GithubInput = () => {
   }
   
   return (
-    <div className="">
+    <div className="w-full max-w-sm sm:max-w-md md:max-w-lg">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className=" relative">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="relative">
           <FormField
             control={form.control}
             name="username"
             render={({ field }) => (
               <FormItem className="font-modernreg">
-                {/* <FormLabel className="text-zinc-100/80">Username</FormLabel> */}
                 <FormControl>
-                  <Input placeholder="Eg. jonathanrao99" {...field} className="bg-zinc-800/20 backdrop-blur-xl backdrop-saturate-200" />
+                  <Input 
+                    placeholder="Eg. jonathanrao99" 
+                    {...field} 
+                    className="bg-zinc-800/20 backdrop-blur-xl backdrop-saturate-200 h-12 sm:h-14 text-base sm:text-lg pr-12 sm:pr-14" 
+                  />
                 </FormControl>
-                <FormDescription className="text-white/90 font-modernmono">Enter your Github username</FormDescription>
+                <FormDescription className="text-white/90 font-modernmono text-xs sm:text-sm">Enter your Github username</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
           <Button
-            className="absolute top-1 right-1 p-2 text-white "
+            className="absolute top-1 right-1 p-2 text-white h-10 w-10 sm:h-12 sm:w-12"
             type="submit"
           >
-            <ArrowRight />
+            <ArrowRight className="size-4 sm:size-5" />
           </Button>
         </form>
       </Form>

@@ -42,8 +42,8 @@ const Languages = ({
         className="size-full object-cover absolute inset-0 -z-10 rounded-2xl opacity-80 group-hover:opacity-100"
       />
       <div className="absolute top-5 left-5">
-        <Code2 className="size-10" />
-        <p className="font-modernbold text-xl pt-1">Top Languages</p>
+        <Code2 className="size-10 text-white" />
+        <p className="font-modernbold text-xl pt-1 text-white">Top Languages</p>
       </div>
 
       <div className="absolute top-1/2 left-5 right-5 transform -translate-y-1/2 space-y-3 mt-10">
@@ -52,19 +52,17 @@ const Languages = ({
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <div 
-                  className="w-3 h-3 rounded-full" 
-                  style={{ backgroundColor: lang.color }}
+                  className="w-3 h-3 rounded-full bg-white" 
                 />
-                <span className="font-modernreg text-sm">{lang.language}</span>
+                <span className="font-modernreg text-sm text-white">{lang.language}</span>
               </div>
-              <span className="font-modernbold text-sm">{lang.percentage}%</span>
+              <span className="font-modernbold text-sm text-white">{lang.percentage}%</span>
             </div>
-            <div className="w-full bg-gray-700 rounded-full h-2">
+            <div className="w-full bg-gray-600 rounded-full h-2">
               <div
-                className="h-2 rounded-full transition-all duration-300"
+                className="h-2 rounded-full transition-all duration-300 bg-white"
                 style={{
-                  width: `${lang.percentage}%`,
-                  backgroundColor: lang.color
+                  width: `${lang.percentage}%`
                 }}
               />
             </div>

@@ -22,19 +22,19 @@ const TimeAnalysis = ({
     { 
       period: "Morning", 
       percentage: 35, 
-      icon: <Sun className="w-4 h-4 text-yellow-400" />,
+      icon: <Sun className="w-4 h-4 text-white" />,
       description: "6 AM - 12 PM"
     },
     { 
       period: "Afternoon", 
       percentage: 45, 
-      icon: <Coffee className="w-4 h-4 text-orange-400" />,
+      icon: <Coffee className="w-4 h-4 text-white" />,
       description: "12 PM - 6 PM"
     },
     { 
       period: "Evening", 
       percentage: 20, 
-      icon: <Moon className="w-4 h-4 text-blue-400" />,
+      icon: <Moon className="w-4 h-4 text-white" />,
       description: "6 PM - 12 AM"
     },
   ];
@@ -54,8 +54,8 @@ const TimeAnalysis = ({
         className="size-full object-cover absolute inset-0 -z-10 rounded-2xl opacity-80 group-hover:opacity-100"
       />
       <div className="absolute top-5 left-5">
-        <Clock className="size-10" />
-        <p className="font-modernbold text-xl pt-1">Peak Hours</p>
+        <Clock className="size-10 text-white" />
+        <p className="font-modernbold text-xl pt-1 text-white">Peak Hours</p>
       </div>
 
       <div className="absolute top-1/2 left-5 right-5 transform -translate-y-1/2 space-y-3 mt-12">
@@ -64,17 +64,17 @@ const TimeAnalysis = ({
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
                 {time.icon}
-                <span className="font-modernreg text-sm">{time.period}</span>
+                <span className="font-modernreg text-sm text-white">{time.period}</span>
               </div>
-              <span className="font-modernbold text-sm">{time.percentage}%</span>
+              <span className="font-modernbold text-sm text-white">{time.percentage}%</span>
             </div>
-            <div className="w-full bg-gray-700 rounded-full h-2">
+            <div className="w-full bg-gray-600 rounded-full h-2">
               <div
-                className="h-2 rounded-full transition-all duration-300 bg-gradient-to-r from-purple-500 to-pink-500"
+                className="h-2 rounded-full transition-all duration-300 bg-white"
                 style={{ width: `${time.percentage}%` }}
               />
             </div>
-            <p className="text-xs text-gray-400">{time.description}</p>
+            <p className="text-xs text-white">{time.description}</p>
           </div>
         ))}
       </div>
