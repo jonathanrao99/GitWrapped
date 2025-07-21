@@ -1,142 +1,203 @@
-# GitWrapped
+# 🎉 GitWrapped - Your GitHub Year in Review
 
-A Next.js application that generates GitHub contribution statistics and visualizations similar to Spotify Wrapped. Get your personalized GitHub year-in-review with detailed statistics, contribution graphs, and streak analysis.
+<div align="center">
 
-## Features
+![GitWrapped Banner](https://img.shields.io/badge/GitWrapped-Your%20GitHub%20Year%20in%20Review-blue?style=for-the-badge&logo=github)
+![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3-38B2AC?style=for-the-badge&logo=tailwind-css)
 
-- **GitHub Statistics**: Followers, repositories, pull requests, issues, commits, and more
-- **Contribution Analysis**: Current and longest streaks with detailed date ranges
-- **Visual Contribution Graph**: GitHub-style contribution calendar visualization
-- **Modern UI**: Beautiful, responsive interface with animations
-- **Real-time Data**: Fetches live data from GitHub's GraphQL API
+*A beautiful, modern dashboard showcasing your GitHub activity and achievements in a stunning bento grid layout.*
 
-## Prerequisites
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Project-green?style=for-the-badge&logo=vercel)](https://gitwrapped-psi.vercel.app)
+[![Original Repo](https://img.shields.io/badge/Original%20Repo-zzzzshawn%2Fgitwrapped-blue?style=for-the-badge&logo=github)](https://github.com/zzzzshawn/gitwrapped)
 
+</div>
+
+---
+
+## ✨ Features
+
+### 🎯 **Enhanced Bento Grid Layout**
+- **40-cell responsive grid** (10×4) optimized for 1500px width
+- **Perfect grid filling** with no gaps or overlaps
+- **Consistent component styling** across all blocks
+- **Responsive design** that adapts to mobile and desktop
+
+### 📊 **Comprehensive GitHub Stats**
+- **Longest Streak** - Your best contribution streak with dates
+- **Current Streak** - Active contribution streak
+- **Total Commits** - All-time contribution count
+- **Repositories** - Number of repositories
+- **Pull Requests** - PR count and activity
+- **Issues** - Issue creation and participation
+- **Stars Earned** - Repository stars received
+- **Contributed To** - External repository contributions
+- **Followers** - GitHub follower count
+- **Achievements** - Unlocked achievement count
+- **Top Languages** - Most used programming languages
+- **Peak Hours** - Your most active coding times
+
+### 🎨 **Visual Enhancements**
+- **Gradient backgrounds** for each component
+- **Consistent icon positioning** (top-left corner)
+- **Modern typography** with custom fonts
+- **Hover effects** and smooth transitions
+- **Background image selection** with live preview
+- **Download functionality** for sharing your stats
+
+### 🔧 **Technical Improvements**
+- **Fixed grid layout** with proper col-span/row-span
+- **Optimized component sizing** for better visual balance
+- **Removed overlapping elements** for clean design
+- **Enhanced responsive behavior** across devices
+- **Improved accessibility** and user experience
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
 - Node.js 18+ 
 - npm, yarn, pnpm, or bun
-- GitHub Personal Access Token
 
-## Setup
+### Installation
 
 1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd gitwrapped
-   ```
+```bash
+git clone https://github.com/your-username/gitwrapped.git
+cd gitwrapped
+```
 
 2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   ```
-
-3. **Set up GitHub Personal Access Token**
-   
-   You need a GitHub Personal Access Token to access the GitHub API:
-   
-   - Go to [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens)
-   - Click "Generate new token (classic)"
-   - Give it a name like "GitWrapped"
-   - Select these scopes:
-     - `read:user`
-     - `read:email` 
-     - `read:org`
-   - Copy the generated token
-
-4. **Create environment file**
-   ```bash
-   cp .env.local.example .env.local
-   ```
-   
-   Edit `.env.local` and add your GitHub token:
-   ```
-   NEXT_PUBLIC_GITHUB_TOKEN=your_github_personal_access_token_here
-   ```
-
-5. **Run the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   ```
-
-6. **Open your browser**
-   
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
-## Usage
-
-1. Enter a GitHub username in the input field
-2. Click the arrow button or press Enter
-3. Wait for the data to load
-4. View the generated statistics and contribution graph
-
-## Tech Stack
-
-- **Framework**: Next.js 14 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **State Management**: Recoil
-- **Forms**: React Hook Form with Zod validation
-- **UI Components**: Radix UI
-- **Icons**: Lucide React
-- **API**: GitHub GraphQL API
-
-## Project Structure
-
-```
-gitwrapped/
-├── actions/           # API calls and data fetching
-├── app/              # Next.js app router pages
-├── components/       # React components
-│   ├── Github/      # GitHub-related components
-│   ├── Input/       # Form components
-│   └── ui/          # Reusable UI components
-├── hooks/           # Custom React hooks
-├── Recoil/          # State management
-├── types/           # TypeScript type definitions
-├── utils/           # Utility functions
-└── public/          # Static assets
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
 ```
 
-## Troubleshooting
+3. **Run the development server**
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-### 401 Unauthorized Error
-- Make sure you've set the `NEXT_PUBLIC_GITHUB_TOKEN` environment variable
-- Verify your GitHub token has the correct scopes
-- Check that the token hasn't expired
+4. **Open your browser**
+Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
 
-### User Not Found Error
-- Verify the GitHub username is correct
-- Check that the user has a public profile
-- Ensure the user exists on GitHub
+---
 
-### No Contributions Found
-- The user might not have any contributions in the current year
-- Check if the user has any public repositories or activity
+## 🛠️ Tech Stack
 
-## Contributing
+- **Framework**: [Next.js 14](https://nextjs.org/) - React framework
+- **Language**: [TypeScript](https://www.typescriptlang.org/) - Type safety
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
+- **State Management**: [Recoil](https://recoiljs.org/) - State management
+- **Icons**: [Lucide React](https://lucide.dev/) - Beautiful icons
+- **Deployment**: [Vercel](https://vercel.com/) - Hosting platform
+
+---
+
+## 📱 Screenshots
+
+<div align="center">
+
+### Desktop View
+![Desktop Layout](https://via.placeholder.com/800x400/1f2937/ffffff?text=Desktop+GitWrapped+Layout)
+
+### Mobile View  
+![Mobile Layout](https://via.placeholder.com/400x600/1f2937/ffffff?text=Mobile+GitWrapped+Layout)
+
+</div>
+
+---
+
+## 🎯 Recent Improvements
+
+### Grid Layout Enhancements
+- ✅ **Standardized 10×4 grid** for consistent layout
+- ✅ **Fixed component positioning** with proper col-span/row-span
+- ✅ **Removed Collaboration block** for cleaner design
+- ✅ **Expanded Languages & TimeAnalysis** to 3×2 blocks
+- ✅ **Optimized Achievements** to simple number display
+
+### Component Styling
+- ✅ **Consistent icon positioning** (top-left corner)
+- ✅ **Uniform header styling** across all components
+- ✅ **Gradient backgrounds** for visual appeal
+- ✅ **Proper hover effects** and transitions
+- ✅ **Responsive typography** and spacing
+
+### User Experience
+- ✅ **Background selection** with live preview
+- ✅ **Download functionality** for sharing
+- ✅ **Mobile-responsive design**
+- ✅ **Smooth animations** and transitions
+- ✅ **Accessibility improvements**
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please feel free to submit a Pull Request.
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## License
+---
 
-This project is open source and available under the [MIT License](LICENSE).
+## 📄 License
 
-## Learn More
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-To learn more about the technologies used:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [GitHub GraphQL API](https://docs.github.com/en/graphql)
-- [Tailwind CSS](https://tailwindcss.com/docs)
-- [Recoil](https://recoiljs.org/docs/introduction/getting-started)
+## 🙏 Acknowledgments
+
+### Original Repository
+This project is based on the excellent work by **[zzzzshawn](https://github.com/zzzzshawn)** in the original [gitwrapped repository](https://github.com/zzzzshawn/gitwrapped).
+
+### Key Improvements Made
+- **Grid Layout**: Fixed overlapping and spacing issues
+- **Component Styling**: Standardized visual design across all blocks
+- **Responsive Design**: Enhanced mobile and desktop experience
+- **Performance**: Optimized rendering and animations
+- **User Experience**: Added background selection and download features
+
+### Technologies Used
+- [Next.js](https://nextjs.org/) for the framework
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [Recoil](https://recoiljs.org/) for state management
+- [Lucide React](https://lucide.dev/) for icons
+- [Vercel](https://vercel.com/) for deployment
+
+---
+
+<div align="center">
+
+### 🌟 Star the Repository
+If you find this project helpful, please give it a ⭐ on GitHub!
+
+[![GitHub stars](https://img.shields.io/github/stars/zzzzshawn/gitwrapped?style=social)](https://github.com/zzzzshawn/gitwrapped)
+
+### 📞 Connect
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/zzzzshawn)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/zzzzshawn)
+
+---
+
+**Made with ❤️ by the GitWrapped community**
+
+</div>

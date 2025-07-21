@@ -1,6 +1,7 @@
 import React from "react";
 import { Clock, Sun, Moon, Coffee } from "lucide-react";
 import { UserStats } from "@/types";
+import Image from "next/image";
 
 interface TimeData {
   period: string;
@@ -43,15 +44,21 @@ const TimeAnalysis = ({
   if (totalContributions === 0) return null;
 
   return (
-    <div className={`${classname} flex items-center justify-center flex-col gap-3 relative rounded-3xl overflow-hidden p-3 z-[90] bg-black/90 group cursor-pointer`}>
-      <div className="flex items-center gap-2">
-        <Clock className="size-8 text-purple-400" />
-        <div className="text-center">
-          <p className="font-modernbold text-lg">Peak Hours</p>
-        </div>
+    <div className={`${classname} flex items-center justify-center flex-col gap-3 relative rounded-3xl overflow-hidden bg-black/90 z-[90] group cursor-pointer`}>
+      <Image
+        src={`/assets/grad5.svg`}
+        alt=""
+        width={500}
+        height={500}
+        priority
+        className="size-full object-cover absolute inset-0 -z-10 rounded-2xl opacity-80 group-hover:opacity-100"
+      />
+      <div className="absolute top-5 left-5">
+        <Clock className="size-10" />
+        <p className="font-modernbold text-xl pt-1">Peak Hours</p>
       </div>
 
-      <div className="w-full space-y-3">
+      <div className="absolute top-1/2 left-5 right-5 transform -translate-y-1/2 space-y-3 mt-12">
         {timeData.map((time, index) => (
           <div key={time.period} className="space-y-1">
             <div className="flex justify-between items-center">
