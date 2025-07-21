@@ -231,31 +231,31 @@ const Github = () => {
               />
               <Followers
                 followers={userStats.Followers || 0}
-                classname="p-1.5 sm:p-2 md:p-3 max-[1024px]:p-2.5 col-start-1 col-span-1 row-start-4 row-span-2 sm:col-start-1 sm:col-span-2 sm:row-start-3 sm:row-span-1 md:col-start-5 md:col-span-2 md:row-start-1 md:row-span-1 max-[1024px]:col-start-5 max-[1024px]:col-span-1 max-[1024px]:row-start-1 max-[1024px]:row-span-1 lg:col-start-5 lg:col-span-2 lg:row-start-1 lg:row-span-1 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 max-[1024px]:p-2.5 col-start-1 col-span-1 row-start-4 row-span-1 sm:col-start-1 sm:col-span-1 sm:row-start-3 sm:row-span-1 md:col-start-5 md:col-span-1 md:row-start-1 md:row-span-1 max-[1024px]:col-start-5 max-[1024px]:col-span-1 max-[1024px]:row-start-1 max-[1024px]:row-span-1 lg:col-start-5 lg:col-span-1 lg:row-start-1 lg:row-span-1 overflow-hidden min-w-0 min-h-0"
               />
               <Repos
                 repos={userStats.Repositories || 0}
-                classname="p-1.5 sm:p-2 md:p-3 max-[1024px]:p-2.5 col-start-2 col-span-1 row-start-4 row-span-2 sm:col-start-3 sm:col-span-2 sm:row-start-3 sm:row-span-1 md:col-start-7 md:col-span-2 md:row-start-4 md:row-span-1 max-[1024px]:col-start-1 max-[1024px]:col-span-2 max-[1024px]:row-start-2 max-[1024px]:row-span-1 lg:col-start-7 lg:col-span-4 lg:row-start-4 lg:row-span-1 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 max-[1024px]:p-2.5 col-start-2 col-span-1 row-start-4 row-span-2 sm:col-start-2 sm:col-span-2 sm:row-start-3 sm:row-span-1 md:col-start-6 md:col-span-2 md:row-start-4 md:row-span-1 lg:col-start-6 lg:col-span-4 lg:row-start-4 lg:row-span-1 overflow-hidden min-w-0 min-h-0"
               />
               <Commit
                 commits={userStats["Total Contibutions"] || 0}
-                classname="p-1.5 sm:p-2 md:p-3 max-[1024px]:p-2.5 col-start-3 col-span-1 row-start-4 row-span-2 sm:col-start-5 sm:col-span-2 sm:row-start-3 sm:row-span-1 md:col-start-5 md:col-span-2 md:row-start-2 md:row-span-2 max-[1024px]:col-start-3 max-[1024px]:col-span-2 max-[1024px]:row-start-2 max-[1024px]:row-span-2 lg:col-start-5 lg:col-span-2 lg:row-start-2 lg:row-span-2 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 max-[1024px]:p-2.5 col-start-3 col-span-1 row-start-4 row-span-2 sm:col-start-4 sm:col-span-1 sm:row-start-3 sm:row-span-2 md:col-start-5 md:col-span-1 md:row-start-2 md:row-span-2 max-[1024px]:col-start-3 max-[1024px]:col-span-1 max-[1024px]:row-start-2 max-[1024px]:row-span-2 lg:col-start-5 lg:col-span-1 lg:row-start-2 lg:row-span-2 overflow-hidden min-w-0 min-h-0"
               />
               <PRs
                 pr={userStats["Pull Requests"] || 0}
-                classname="p-1.5 sm:p-2 md:p-3 max-[1024px]:p-2.5 col-start-4 col-span-1 row-start-4 row-span-2 sm:col-start-1 sm:col-span-2 sm:row-start-4 sm:row-span-1 md:col-start-7 md:col-span-1 md:row-start-1 md:row-span-3 max-[1024px]:col-start-1 max-[1024px]:col-span-1 max-[1024px]:row-start-3 max-[1024px]:row-span-1 lg:col-start-7 lg:col-span-1 lg:row-start-1 lg:row-span-3 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 max-[1024px]:p-2.5 col-start-4 col-span-1 row-start-4 row-span-2 sm:col-start-5 sm:col-span-1 sm:row-start-3 sm:row-span-1 md:col-start-6 md:col-span-1 md:row-start-1 md:row-span-3 lg:col-start-6 lg:col-span-1 lg:row-start-1 lg:row-span-3 overflow-hidden min-w-0 min-h-0"
               />
               <Issues
                 issues={userStats.Issues || 0}
-                classname="p-1.5 sm:p-2 md:p-3 max-[1024px]:p-2.5 col-start-1 col-span-1 row-start-6 row-span-2 sm:col-start-3 sm:col-span-2 sm:row-start-4 sm:row-span-1 md:col-start-8 md:col-span-1 md:row-start-1 md:row-span-2 max-[1024px]:col-start-2 max-[1024px]:col-span-1 max-[1024px]:row-start-3 max-[1024px]:row-span-1 lg:col-start-8 lg:col-span-1 lg:row-start-1 lg:row-span-2 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 max-[1024px]:p-2.5 col-start-1 col-span-1 row-start-5 row-span-1 sm:col-start-6 sm:col-span-1 sm:row-start-3 sm:row-span-1 md:col-start-7 md:col-span-1 md:row-start-1 md:row-span-2 lg:col-start-7 lg:col-span-1 lg:row-start-1 lg:row-span-2 overflow-hidden min-w-0 min-h-0"
               />
               <Stars
                 stars={userStats["Star Earned"] || 0}
-                classname="p-1.5 sm:p-2 md:p-3 max-[1024px]:p-2.5 col-start-2 col-span-1 row-start-6 row-span-2 sm:col-start-5 sm:col-span-2 sm:row-start-4 sm:row-span-1 md:col-start-1 md:col-span-2 md:row-start-4 md:row-span-1 max-[1024px]:col-start-3 max-[1024px]:col-span-1 max-[1024px]:row-start-3 max-[1024px]:row-span-1 lg:col-start-1 lg:col-span-2 lg:row-start-4 lg:row-span-1 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 max-[1024px]:p-2.5 col-start-2 col-span-1 row-start-5 row-span-1 sm:col-start-1 sm:col-span-1 sm:row-start-4 sm:row-span-1 md:col-start-1 md:col-span-1 md:row-start-4 md:row-span-1 lg:col-start-1 lg:col-span-1 lg:row-start-4 lg:row-span-1 overflow-hidden min-w-0 min-h-0"
               />
               <ContributedTo
                 contros={userStats["Contributed To"] || 0}
-                classname="p-1.5 sm:p-2 md:p-3 max-[1024px]:p-2.5 col-start-3 col-span-1 row-start-6 row-span-2 sm:col-start-1 sm:col-span-2 sm:row-start-5 sm:row-span-1 md:col-start-5 md:col-span-2 md:row-start-4 md:row-span-1 max-[1024px]:col-start-4 max-[1024px]:col-span-1 max-[1024px]:row-start-3 max-[1024px]:row-span-1 lg:col-start-5 lg:col-span-2 lg:row-start-4 lg:row-span-1 overflow-hidden min-w-0 min-h-0"
+                classname="p-1.5 sm:p-2 md:p-3 max-[1024px]:p-2.5 col-start-3 col-span-1 row-start-5 row-span-1 sm:col-start-2 sm:col-span-1 sm:row-start-4 sm:row-span-1 md:col-start-2 md:col-span-1 md:row-start-4 md:row-span-1 lg:col-start-2 lg:col-span-1 lg:row-start-4 lg:row-span-1 overflow-hidden min-w-0 min-h-0"
               />
               <Achievements
                 userStats={userStats}
