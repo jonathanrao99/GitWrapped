@@ -27,7 +27,7 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { ArrowDown, Plus } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-import { toPng } from "html-to-image";
+import html2canvas from 'html2canvas';
 import {
   Select,
   SelectContent,
@@ -106,15 +106,16 @@ const Github = () => {
       // Wait for the background to be applied
       await new Promise(resolve => setTimeout(resolve, 200));
 
-      const dataUrl = await toPng(node, { 
-        quality: 0.95,
+      const canvas = await html2canvas(node, { 
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: null,
+        scale: 2,
         width: node.offsetWidth,
         height: node.offsetHeight,
-        style: {
-          transform: 'scale(1)',
-          transformOrigin: 'top left'
-        }
       });
+      
+      const dataUrl = canvas.toDataURL('image/png', 0.95);
       
       // Restore original background
       node.style.backgroundImage = originalBackground;
@@ -130,7 +131,7 @@ const Github = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          foregroundPath: dataUrl.split(",")[1],
+          foregroundPath: dataUrl.split(',')[1],
           backgroundPath: background,
         }),
       });
