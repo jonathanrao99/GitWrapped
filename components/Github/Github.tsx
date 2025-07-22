@@ -25,7 +25,7 @@ import {
 import { UserStats } from "@/types";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Plus } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { toPng } from "html-to-image";
 import {
@@ -43,9 +43,36 @@ const Github = () => {
   const username = useRecoilValue(usernameState);
   const [background, setBackground] = useRecoilState(backgroundState);
   const [selectedImage, setSelectedImage] = useState<string>("/assets/grad1.jpg");
+  const [customBackground, setCustomBackground] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
 
   const githubRef = useRef<HTMLDivElement | null>(null);
+
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      // Check file type
+      if (!file.type.startsWith('image/')) {
+        toast({ title: "Please select an image file" });
+        return;
+      }
+      
+      // Check file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        toast({ title: "File size must be less than 5MB" });
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const result = e.target?.result as string;
+        setCustomBackground(result);
+        toast({ title: "Custom background applied!" });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleDownloadImage = async () => {
     toast({ title: "Starting Download...", generating: true });
@@ -96,6 +123,11 @@ const Github = () => {
 
   // Get background image URL for live UI
   const getBackgroundImageUrl = () => {
+    // If custom background is set, use it
+    if (customBackground) {
+      return customBackground;
+    }
+    
     // Map background state to actual image URLs
     const backgroundMap: Record<string, string> = {
       "assets/frame2.png": "/assets/frame2.png",
@@ -127,8 +159,23 @@ const Github = () => {
             userStats={userStats} 
             className=""
           />
+          
+          {/* Hidden file input for custom background */}
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFileUpload}
+            accept="image/*"
+            className="hidden"
+          />
+          
           <Select
             onValueChange={(value) => {
+              if (value === "custom") {
+                fileInputRef.current?.click();
+                return;
+              }
+              
               const imageMap: Record<string, string> = {
                 apple: "assets/frame2.png",
                 banana: "assets/bg3.png",
@@ -138,6 +185,8 @@ const Github = () => {
               const selectedBackground = imageMap[value];
               setSelectedImage(`/${selectedBackground}`);
               setBackground(selectedBackground);
+              // Clear custom background when selecting a preset
+              setCustomBackground(null);
             }}
           >
             <SelectTrigger className="p-2 relative rounded-full overflow-hidden max-sm:p-1">
@@ -189,6 +238,9 @@ const Github = () => {
                     height={100}
                     className="size-7 rounded-full object-cover"
                   />
+                </SelectItem>
+                <SelectItem value="custom" className="flex items-center gap-2">
+                  <Plus className="size-5 text-white" />
                 </SelectItem>
               </SelectGroup>
             </SelectContent>
