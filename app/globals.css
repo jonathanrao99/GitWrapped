@@ -6,16 +6,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Hide scrollbars */
-* {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-}
-
-*::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;

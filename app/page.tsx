@@ -64,13 +64,13 @@ function HomeContent() {
   };
 
   return (
-    <div className="w-full min-h-screen mx-auto p-2 sm:p-5 max-sm:p-0 flex flex-col items-center justify-center overflow-hidden relative">
+    <div className="w-full min-h-screen mx-auto p-5 max-sm:p-0 flex flex-col items-center justify-center overflow-hidden relative">
       <Link
         href={`https://github.com/jonathanrao99`}
-        className="cursor-pointer flex items-center justify-start gap-2 z-10 w-full font-modernmono text-zinc-600 hover:text-white/60 px-3 sm:px-5 max-sm:py-2 sm:py-3"
+        className="cursor-pointer flex items-center justify-start gap-2 z-10 w-full font-modernmono text-zinc-600 hover:text-white/60 px-5 max-sm:py-3"
       >
-        <h1 className="text-sm sm:text-base">GitWrapped 2.0 by @jonathanrao99 </h1>
-        <GithubIcon size={16} className="sm:size-18" />
+        <h1>GitWrapped 2.0 by @jonathanrao99 </h1>
+        <GithubIcon size={18} />
       </Link>
     
     {/* Default background - only show when no user data is loaded */}
@@ -103,7 +103,7 @@ function HomeContent() {
     )}
     
     {/* Input form - always visible */}
-    <div className="h-[85vh] sm:h-[92vh] w-full flex items-center justify-center z-10 px-4 sm:px-0">
+    <div className="h-[92vh] w-full flex items-center justify-center z-10">
       <GithubInput />
     </div>
     
