@@ -80,40 +80,33 @@ const Github = () => {
     const node = document.getElementById("github-ss") as HTMLElement;
     if (!node) return toast({ title: "Failed to find element." });
 
-    // Create a temporary container with background
-    const tempContainer = document.createElement('div');
-    tempContainer.style.position = 'absolute';
-    tempContainer.style.left = '-9999px';
-    tempContainer.style.top = '0';
-    tempContainer.style.width = node.offsetWidth + 'px';
-    tempContainer.style.height = node.offsetHeight + 'px';
-    tempContainer.style.overflow = 'hidden';
-    
-    // Add background image to temp container
-    const backgroundDiv = document.createElement('div');
-    backgroundDiv.style.position = 'absolute';
-    backgroundDiv.style.top = '0';
-    backgroundDiv.style.left = '0';
-    backgroundDiv.style.width = '100%';
-    backgroundDiv.style.height = '100%';
-    backgroundDiv.style.backgroundImage = `url(${getBackgroundImageUrl()})`;
-    backgroundDiv.style.backgroundSize = 'cover';
-    backgroundDiv.style.backgroundPosition = 'center';
-    backgroundDiv.style.zIndex = '0';
-    
-    // Clone the content
-    const clonedNode = node.cloneNode(true) as HTMLElement;
-    clonedNode.style.position = 'relative';
-    clonedNode.style.zIndex = '1';
-    clonedNode.style.background = 'transparent';
-    
-    // Assemble the temp container
-    tempContainer.appendChild(backgroundDiv);
-    tempContainer.appendChild(clonedNode);
-    document.body.appendChild(tempContainer);
-
     try {
-      const dataUrl = await toPng(tempContainer, { 
+      // Pre-load the background image
+      const backgroundUrl = getBackgroundImageUrl();
+      const img = new window.Image();
+      img.crossOrigin = 'anonymous';
+      
+      await new Promise<void>((resolve, reject) => {
+        img.onload = () => resolve();
+        img.onerror = () => reject(new Error('Failed to load background image'));
+        img.src = backgroundUrl;
+      });
+
+      // Temporarily set the background on the main container
+      const originalBackground = node.style.backgroundImage;
+      const originalBackgroundSize = node.style.backgroundSize;
+      const originalBackgroundPosition = node.style.backgroundPosition;
+      const originalBackgroundRepeat = node.style.backgroundRepeat;
+      
+      node.style.backgroundImage = `url(${backgroundUrl})`;
+      node.style.backgroundSize = 'cover';
+      node.style.backgroundPosition = 'center';
+      node.style.backgroundRepeat = 'no-repeat';
+
+      // Wait for the background to be applied
+      await new Promise(resolve => setTimeout(resolve, 200));
+
+      const dataUrl = await toPng(node, { 
         quality: 0.95,
         width: node.offsetWidth,
         height: node.offsetHeight,
@@ -122,6 +115,12 @@ const Github = () => {
           transformOrigin: 'top left'
         }
       });
+      
+      // Restore original background
+      node.style.backgroundImage = originalBackground;
+      node.style.backgroundSize = originalBackgroundSize;
+      node.style.backgroundPosition = originalBackgroundPosition;
+      node.style.backgroundRepeat = originalBackgroundRepeat;
       
       toast({ title: "Downloading...", generating: true });
       
@@ -154,9 +153,6 @@ const Github = () => {
     } catch (error) {
       console.error(error);
       toast({ title: "Error occurred while downloading." });
-    } finally {
-      // Clean up
-      document.body.removeChild(tempContainer);
     }
   };
 

@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-      domains: [],
       remotePatterns: [
         {
           protocol: "https",
@@ -15,8 +14,9 @@ const nextConfig = {
     eslint: {
       ignoreDuringBuilds: true,
     },
-    trailingSlash: false,
-    generateEtags: false,
+    experimental: {
+      serverComponentsExternalPackages: ['sharp'],
+    },
   };
   
   export default nextConfig;
