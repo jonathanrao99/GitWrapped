@@ -80,39 +80,84 @@ const Github = () => {
     const node = document.getElementById("github-ss") as HTMLElement;
     if (!node) return toast({ title: "Failed to find element." });
 
-    toPng(node, { quality: 0.89 })
-      .then(async (dataUrl) => {
-        const base64Data = dataUrl.split(",")[1];
-        toast({ title: "Downloading...", generating: true });
-        const response = await fetch("/api/change-background", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            foregroundPath: base64Data,
-            backgroundPath: background,
-          }),
-        });
-        toast({ title: "Downloading...", generating: true });
-        if (response.ok) {
-          const data = await response.blob();
-          const link = document.createElement("a");
-          const url = URL.createObjectURL(data);
-          toast({ title: "Downloading...", generating: true });
-          link.href = url;
-          link.download = `${username || "user"}.png`;
-          link.click();
-          URL.revokeObjectURL(url);
-          toast({ title: "Bento Downloaded Successfully" });
-        } else {
-          toast({ title: "Error: Slow Internet" });
+    // Create a temporary container with background
+    const tempContainer = document.createElement('div');
+    tempContainer.style.position = 'absolute';
+    tempContainer.style.left = '-9999px';
+    tempContainer.style.top = '0';
+    tempContainer.style.width = node.offsetWidth + 'px';
+    tempContainer.style.height = node.offsetHeight + 'px';
+    tempContainer.style.overflow = 'hidden';
+    
+    // Add background image to temp container
+    const backgroundDiv = document.createElement('div');
+    backgroundDiv.style.position = 'absolute';
+    backgroundDiv.style.top = '0';
+    backgroundDiv.style.left = '0';
+    backgroundDiv.style.width = '100%';
+    backgroundDiv.style.height = '100%';
+    backgroundDiv.style.backgroundImage = `url(${getBackgroundImageUrl()})`;
+    backgroundDiv.style.backgroundSize = 'cover';
+    backgroundDiv.style.backgroundPosition = 'center';
+    backgroundDiv.style.zIndex = '0';
+    
+    // Clone the content
+    const clonedNode = node.cloneNode(true) as HTMLElement;
+    clonedNode.style.position = 'relative';
+    clonedNode.style.zIndex = '1';
+    clonedNode.style.background = 'transparent';
+    
+    // Assemble the temp container
+    tempContainer.appendChild(backgroundDiv);
+    tempContainer.appendChild(clonedNode);
+    document.body.appendChild(tempContainer);
+
+    try {
+      const dataUrl = await toPng(tempContainer, { 
+        quality: 0.95,
+        width: node.offsetWidth,
+        height: node.offsetHeight,
+        style: {
+          transform: 'scale(1)',
+          transformOrigin: 'top left'
         }
-      })
-      .catch((error) => {
-        console.error(error);
-        toast({ title: "Error occurred while downloading." });
       });
+      
+      toast({ title: "Downloading...", generating: true });
+      
+      const response = await fetch("/api/change-background", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          foregroundPath: dataUrl.split(",")[1],
+          backgroundPath: background,
+        }),
+      });
+      
+      toast({ title: "Downloading...", generating: true });
+      
+      if (response.ok) {
+        const data = await response.blob();
+        const link = document.createElement("a");
+        const url = URL.createObjectURL(data);
+        toast({ title: "Downloading...", generating: true });
+        link.href = url;
+        link.download = `${username || "user"}.png`;
+        link.click();
+        URL.revokeObjectURL(url);
+        toast({ title: "Bento Downloaded Successfully" });
+      } else {
+        toast({ title: "Error: Slow Internet" });
+      }
+    } catch (error) {
+      console.error(error);
+      toast({ title: "Error occurred while downloading." });
+    } finally {
+      // Clean up
+      document.body.removeChild(tempContainer);
+    }
   };
 
   useEffect(() => {
@@ -248,9 +293,9 @@ const Github = () => {
         </div>
       )}
       
-      <div id="github-ss" ref={githubRef} className="relative top-[-10px] w-full h-full flex items-start justify-start flex-col bg-transparent overflow-y-auto scrollbar-hide">
+      <div id="github-ss" ref={githubRef} className="relative top-[-10px] w-full h-full flex items-start justify-start flex-col bg-transparent overflow-y-auto scrollbar-hide max-w-full">
         {!loading && (
-          <div className="text-white z-10 w-full lg:w-[100%] max-w-[1500px] mx-auto flex items-start justify-start flex-col p-3 relative pt-[3.5rem]">
+          <div className="text-white z-10 w-full lg:w-[100%] max-w-[1500px] mx-auto flex items-start justify-start flex-col p-3 relative pt-[3.5rem] scale-100">
             <div className="flex items-center justify-center gap-4 sm:px-10 px-3 mb-2">
               <div className="">
                 <Image
@@ -268,7 +313,7 @@ const Github = () => {
             </div>
             
             {/* Grid Section */}
-            <div className="grid grid-cols-6 grid-rows-7 md:grid-cols-10 md:grid-rows-4 gap-2 md:gap-3 w-full max-w-[1500px] mx-auto md:h-[600px] h-[700px] max-sm:min-h-[100vh] overflow-y-auto scrollbar-hide">
+            <div className="grid grid-cols-6 grid-rows-7 md:grid-cols-10 md:grid-rows-4 gap-2 md:gap-3 w-full max-w-[1500px] mx-auto md:h-[600px] h-[700px] max-sm:min-h-[100vh] overflow-y-auto scrollbar-hide scale-100">
               <LongestStreak
                 streak={userStats["Longest Streak"] || 0}
                 start={userStats["Longest Streak Start"] || ""}
