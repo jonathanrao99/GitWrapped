@@ -216,7 +216,7 @@ const Github = () => {
             </div>
             
             {/* Grid Section */}
-            <div className="grid grid-cols-6 grid-rows-8 md:grid-cols-10 md:grid-rows-4 gap-2 md:gap-3 w-full max-w-[1500px] mx-auto md:h-[600px] h-[800px] max-sm:min-h-[100vh] overflow-y-auto">
+            <div className="grid grid-cols-6 grid-rows-7 md:grid-cols-10 md:grid-rows-4 gap-2 md:gap-3 w-full max-w-[1500px] mx-auto md:h-[600px] h-[700px] max-sm:min-h-[100vh] overflow-y-auto">
               <LongestStreak
                 streak={userStats["Longest Streak"] || 0}
                 start={userStats["Longest Streak Start"] || ""}
@@ -233,41 +233,41 @@ const Github = () => {
                 followers={userStats.Followers || 0}
                 classname="p-2 md:p-3 col-start-5 col-span-2 row-start-1 row-span-1 md:col-start-5 md:col-span-2 md:row-start-1 md:row-span-1 overflow-hidden min-w-0 min-h-0"
               />
-              <Repos
-                repos={userStats.Repositories || 0}
-                classname="p-2 md:p-3 col-start-1 col-span-2 row-start-4 row-span-1 md:col-start-7 md:col-span-4 md:row-start-4 md:row-span-1 overflow-hidden min-w-0 min-h-0"
+              <Stars
+                stars={userStats["Star Earned"] || 0}
+                classname="p-2 md:p-3 col-start-5 col-span-2 row-start-2 row-span-1 md:col-start-1 md:col-span-2 md:row-start-4 md:row-span-1 overflow-hidden min-w-0 min-h-0"
               />
               <Commit
                 commits={userStats["Total Contibutions"] || 0}
-                classname="p-2 md:p-3 col-start-3 col-span-2 row-start-3 row-span-2 md:col-start-5 md:col-span-2 md:row-start-2 md:row-span-2 overflow-hidden min-w-0 min-h-0"
+                classname="p-2 md:p-3 col-start-3 col-span-4 row-start-3 row-span-2 md:col-start-5 md:col-span-2 md:row-start-2 md:row-span-2 overflow-hidden min-w-0 min-h-0"
               />
               <PRs
                 pr={userStats["Pull Requests"] || 0}
-                classname="p-2 md:p-3 col-start-5 col-span-1 row-start-2 row-span-1 md:col-start-7 md:col-span-1 md:row-start-1 md:row-span-3 overflow-hidden min-w-0 min-h-0"
+                classname="p-2 md:p-3 col-start-1 col-span-1 row-start-4 row-span-2 md:col-start-7 md:col-span-1 md:row-start-1 md:row-span-3 overflow-hidden min-w-0 min-h-0"
               />
               <Issues
                 issues={userStats.Issues || 0}
-                classname="p-2 md:p-3 col-start-6 col-span-1 row-start-2 row-span-1 md:col-start-8 md:col-span-1 md:row-start-1 md:row-span-2 overflow-hidden min-w-0 min-h-0"
-              />
-              <Stars
-                stars={userStats["Star Earned"] || 0}
-                classname="p-2 md:p-3 col-start-1 col-span-2 row-start-5 row-span-1 md:col-start-1 md:col-span-2 md:row-start-4 md:row-span-1 overflow-hidden min-w-0 min-h-0"
+                classname="p-2 md:p-3 col-start-2 col-span-1 row-start-4 row-span-2 md:col-start-8 md:col-span-1 md:row-start-1 md:row-span-2 overflow-hidden min-w-0 min-h-0"
               />
               <ContributedTo
                 contros={userStats["Contributed To"] || 0}
                 classname="p-2 md:p-3 col-start-3 col-span-2 row-start-5 row-span-1 md:col-start-5 md:col-span-2 md:row-start-4 md:row-span-1 overflow-hidden min-w-0 min-h-0"
               />
+              <Repos
+                repos={userStats.Repositories || 0}
+                classname="p-2 md:p-3 col-start-5 col-span-1 row-start-5 row-span-1 md:col-start-7 md:col-span-4 md:row-start-4 md:row-span-1 overflow-hidden min-w-0 min-h-0"
+              />
               <Achievements
                 userStats={userStats}
-                classname="p-2 md:p-3 col-start-5 col-span-2 row-start-5 row-span-1 md:col-start-8 md:col-span-3 md:row-start-3 md:row-span-1 hidden md:block overflow-hidden min-w-0 min-h-0"
+                classname="p-2 md:p-3 col-start-6 col-span-1 row-start-5 row-span-1 md:col-start-8 md:col-span-3 md:row-start-3 md:row-span-1 overflow-hidden min-w-0 min-h-0"
               />
               <Languages
                 userStats={userStats}
-                classname="p-2 md:p-3 col-start-1 col-span-3 row-start-6 row-span-2 md:col-start-3 md:col-span-2 md:row-start-3 md:row-span-2 hidden md:block overflow-hidden min-w-0 min-h-0"
+                classname="p-2 md:p-3 col-start-1 col-span-3 row-start-6 row-span-2 md:col-start-3 md:col-span-2 md:row-start-3 md:row-span-2 overflow-hidden min-w-0 min-h-0"
               />
               <TimeAnalysis
                 userStats={userStats}
-                classname="p-2 md:p-3 col-start-4 col-span-3 row-start-6 row-span-2 md:col-start-9 md:col-span-2 md:row-start-1 md:row-span-2 hidden md:block overflow-hidden min-w-0 min-h-0"
+                classname="p-2 md:p-3 col-start-4 col-span-3 row-start-6 row-span-2 md:col-start-9 md:col-span-2 md:row-start-1 md:row-span-2 overflow-hidden min-w-0 min-h-0"
               />
             </div>
             
@@ -301,13 +301,6 @@ const Github = () => {
                 Download Bento
               </p>
             </Button>
-            <div className="absolute bottom-4 left-4 z-20 md:hidden">
-              <ShareButtons 
-                username={username} 
-                userStats={userStats} 
-                className="flex-col gap-1"
-              />
-            </div>
           </>
         )}
     </div>
