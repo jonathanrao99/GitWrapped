@@ -8,7 +8,6 @@ const nextConfig = {
           hostname: "**",
         },
       ],
-      unoptimized: false,
     },
     typescript: {
       ignoreBuildErrors: true,
@@ -16,10 +15,8 @@ const nextConfig = {
     eslint: {
       ignoreDuringBuilds: true,
     },
-    experimental: {
-      optimizeCss: true,
-    },
-    output: 'standalone',
+    trailingSlash: false,
+    generateEtags: false,
   };
   
   export default nextConfig;
