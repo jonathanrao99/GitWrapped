@@ -121,11 +121,11 @@ const Github = () => {
       </div>
       
       {!loading && (
-        <div className="absolute top-8 px-10 z-30 right-0 max-sm:right-[4.2rem] max-sm:top-2 flex gap-4">
+        <div className="absolute top-8 px-10 z-30 right-0 max-sm:right-2 max-sm:top-2 max-sm:px-2 flex gap-4 max-sm:gap-2">
           <ShareButtons 
             username={username} 
             userStats={userStats} 
-            className="max-sm:hidden"
+            className=""
           />
           <Select
             onValueChange={(value) => {
@@ -140,13 +140,13 @@ const Github = () => {
               setBackground(selectedBackground);
             }}
           >
-            <SelectTrigger className="p-2 relative rounded-full overflow-hidden">
+            <SelectTrigger className="p-2 relative rounded-full overflow-hidden max-sm:p-1">
               <Image
                 src={selectedImage} // Dynamically show the selected image
                 alt="Selected"
                 width={100}
                 height={100}
-                className="size-7 rounded-full object-cover"
+                className="size-7 max-sm:size-6 rounded-full object-cover"
               />
             </SelectTrigger>
             <SelectContent>
@@ -216,7 +216,7 @@ const Github = () => {
             </div>
             
             {/* Grid Section */}
-            <div className="grid grid-cols-6 grid-rows-7 md:grid-cols-10 md:grid-rows-4 gap-2 md:gap-3 w-full max-w-[1500px] mx-auto md:h-[600px] h-[700px] max-sm:min-h-[100vh] overflow-y-auto">
+            <div className="grid grid-cols-6 grid-rows-7 md:grid-cols-10 md:grid-rows-4 gap-2 md:gap-3 w-full max-w-[1500px] mx-auto md:h-[600px] h-[700px] max-sm:min-h-[100vh] overflow-y-auto scrollbar-hide">
               <LongestStreak
                 streak={userStats["Longest Streak"] || 0}
                 start={userStats["Longest Streak Start"] || ""}
