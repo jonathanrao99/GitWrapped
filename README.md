@@ -101,10 +101,10 @@ Navigate to [http://localhost:3000](http://localhost:3000) to see the applicatio
 <div align="center">
 
 ### Desktop View
-![Desktop Layout](https://via.placeholder.com/800x400/1f2937/ffffff?text=Desktop+GitWrapped+2.0+Layout)
+![Desktop Layout](/desktop.png)
 
 ### Mobile View  
-![Mobile Layout](https://via.placeholder.com/400x600/1f2937/ffffff?text=Mobile+GitWrapped+2.0+Layout)
+![Mobile Layout](/mobile.png)
 
 </div>
 

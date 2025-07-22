@@ -248,7 +248,7 @@ const Github = () => {
         </div>
       )}
       
-      <div id="github-ss" ref={githubRef} className="relative top-[-10px] w-full h-full flex items-start justify-start flex-col bg-transparent overflow-y-auto">
+      <div id="github-ss" ref={githubRef} className="relative top-[-10px] w-full h-full flex items-start justify-start flex-col bg-transparent overflow-y-auto scrollbar-hide">
         {!loading && (
           <div className="text-white z-10 w-full lg:w-[100%] max-w-[1500px] mx-auto flex items-start justify-start flex-col p-3 relative pt-[3.5rem]">
             <div className="flex items-center justify-center gap-4 sm:px-10 px-3 mb-2">
