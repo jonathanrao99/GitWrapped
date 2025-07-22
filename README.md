@@ -101,10 +101,10 @@ Navigate to [http://localhost:3000](http://localhost:3000) to see the applicatio
 <div align="center">
 
 ### Desktop View
-![Desktop Layout](/desktop.png)
+![Desktop Layout](public/desktop.png)
 
 ### Mobile View  
-![Mobile Layout](/mobile.png)
+![Mobile Layout](public/mobile.png)
 
 </div>
 
