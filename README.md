@@ -164,7 +164,7 @@ This project is based on the excellent work by **[zzzzshawn](https://github.com/
 ### 🌟 Star the Repository
 If you find this project helpful, please give it a ⭐ on GitHub!
 
-[![GitHub stars](https://img.shields.io/github/stars/jonathanrao99/GitWrapped?style=social)](https://github.com/jonathanrao99/GitWrapped)
+[![GitHub stars](https://img.shields.io/github/stars/jonathanrao99/GitWrapped2.0?style=social)](https://github.com/jonathanrao99/GitWrapped2.0)
 
 ### 📞 Connect
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jonathanrao99)
